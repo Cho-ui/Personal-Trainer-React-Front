@@ -8,9 +8,6 @@ import Customers from './components/Customers';
 import Trainings from './components/Trainings';
 
 
-//import './App.css';
-// className="App"
-
 function App() {
  const [collapsed, setCollapsed] = useState(false);
 
@@ -26,7 +23,7 @@ function App() {
       <Layout style={{ minHeight: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline">
             <Menu.Item key="1" icon={<TeamOutlined />} title={null}>
               <Link to="/customers">
               Customers

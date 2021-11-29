@@ -20,19 +20,19 @@ function Customers() {
     }
 
     const columns = [
-        {field: 'firstname', sortable: true, filter: true},
-        {field: 'lastname', sortable: true, filter: true},
-        {field: 'streetaddress', sortable: true, filter: true},
-        {field: 'postcode', sortable: true, filter: true},
-        {field: 'email', sortable: true, filter: true},
-        {field: 'phone', sortable: true, filter: true},
-        {field: 'city', sortable: true, filter: true}
+        {field: 'firstname', headerName: 'First Name', sortable: true, filter: true},
+        {field: 'lastname', headerName: 'Last Name', sortable: true, filter: true},
+        {field: 'streetaddress', headerName: 'Street Address', sortable: true, filter: true},
+        {field: 'postcode', headerName: 'Post Code', sortable: true, filter: true},
+        {field: 'email', headerName: 'Email', sortable: true, filter: true},
+        {field: 'phone', headerName: 'Phone Number', sortable: true, filter: true},
+        {field: 'city', headerName: 'City', sortable: true, filter: true}
     ]
 
     return (
         <div>
             <div className="ag-theme-alpine" 
-            style={{ marginTop: 10, height: 600, width: '95%'}}>
+            style={{ marginTop: 10, height: 500, width: '95%'}}>
             <AgGridReact
                     rowData={customers}
                     columnDefs={columns}
