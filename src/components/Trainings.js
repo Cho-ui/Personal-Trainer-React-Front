@@ -45,7 +45,7 @@ const columns = [
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Trainings;

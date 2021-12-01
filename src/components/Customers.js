@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {AgGridReact} from 'ag-grid-react';
+import { AgGridReact } from 'ag-grid-react';
+import { Space } from "antd";
+import AddCustomer from "./AddCustomer";
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -17,7 +19,7 @@ function Customers() {
         .then(response => response.json())
         .then(data => setCustomers(data.content))
         .catch(err => console.error(err))
-    }
+    };
 
     const columns = [
         {field: 'firstname', headerName: 'First Name', sortable: true, filter: true},
@@ -27,12 +29,15 @@ function Customers() {
         {field: 'email', headerName: 'Email', sortable: true, filter: true},
         {field: 'phone', headerName: 'Phone Number', sortable: true, filter: true},
         {field: 'city', headerName: 'City', sortable: true, filter: true}
-    ]
+    ];
 
     return (
         <div>
             <div className="ag-theme-alpine" 
             style={{ marginTop: 10, height: 500, width: '95%'}}>
+            <Space style={{ marginBottom: 10 }}>
+                <AddCustomer fetchCustomers={fetchCustomers} />
+            </Space>
             <AgGridReact
                     rowData={customers}
                     columnDefs={columns}
@@ -43,7 +48,7 @@ function Customers() {
                 />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Customers;

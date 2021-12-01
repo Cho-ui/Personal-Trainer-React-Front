@@ -39,9 +39,9 @@ function App() {
       <Layout className="site-layout">
         <Content style={{marginTop: 10, marginLeft: 15}}>
         <Routes>          
-            <Route path="/" element={<Customers />} />
-            <Route path="/customers" element={<Customers />} />
-            <Route path="/activities" element={<Trainings />} />
+            <Route exact path="/" element={<Customers />} />
+            <Route exact path="/customers" element={<Customers />} />
+            <Route exact path="/activities" element={<Trainings />} />
           </Routes>
         </Content>
       </Layout>
@@ -49,6 +49,6 @@ function App() {
     </Router>
     </div>
   );
-}
+};
 
 export default App;
