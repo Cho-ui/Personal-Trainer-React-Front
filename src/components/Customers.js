@@ -6,6 +6,7 @@ import AddCustomer from "./AddCustomer";
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import EditCustomer from "./EditCustomer";
 
 function Customers() {
     const [customers, setCustomers] = useState([]);
@@ -28,7 +29,10 @@ function Customers() {
         {field: 'postcode', headerName: 'Post Code', sortable: true, filter: true},
         {field: 'email', headerName: 'Email', sortable: true, filter: true},
         {field: 'phone', headerName: 'Phone Number', sortable: true, filter: true},
-        {field: 'city', headerName: 'City', sortable: true, filter: true}
+        {field: 'city', headerName: 'City', sortable: true, filter: true},
+        {field: 'links.0.href', headerName: '', sortable: false, filter: false,
+        cellRendererFramework: params => <EditCustomer customer={params} customerlink={params.value}
+    fetchCustomers={fetchCustomers} />}
     ];
 
     return (
@@ -43,7 +47,6 @@ function Customers() {
                     columnDefs={columns}
                     pagination={true}
                     paginationPageSize={10}
-                    rowSelection="single"
                     suppressCellSelection={true}
                 />
             </div>
