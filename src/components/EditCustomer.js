@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Modal } from 'antd';
+import { Modal, message } from 'antd';
 import { ToolOutlined } from "@ant-design/icons";
 import EditCustomerFields from "./formfields/EditCustomerFields";
 
@@ -42,7 +42,10 @@ function EditCustomer(props) {
             headers: {'Content-type':'application/json'},
             body: JSON.stringify(updatedCustomer)
         })
-        .then(_ => props.fetchCustomers())
+        .then(_ => {
+            props.fetchCustomers()
+            message.success('Customer edit successful!')
+        })
         .catch(err => console.error(err))
     }
 

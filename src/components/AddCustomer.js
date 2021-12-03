@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Modal, Button } from 'antd';
+import { Modal, Button, message } from 'antd';
 import AddCustomerFields from "./formfields/AddCustomerFields";
 
 function AddCustomer(props) {
@@ -42,7 +42,10 @@ function AddCustomer(props) {
             headers: {'Content-type':'application/json'},
             body: JSON.stringify(customer)
         })
-        .then(_ => props.fetchCustomers())
+        .then(_ => {
+            props.fetchCustomers()
+            message.success('Customer added!')
+        })
         .catch(err => console.error(err))
     };
 
