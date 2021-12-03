@@ -8,18 +8,36 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import EditCustomer from "./EditCustomer";
 import DeleteCustomer from "./DeleteCustomer";
+import AddTraining from "../AddTraining";
 
 function Customers() {
     const [customers, setCustomers] = useState([]);
+    const [trainings, setTrainings] = useState([]);
+    const [activities, setActivities] = useState([]);
 
     useEffect(() => {
         fetchCustomers();
+        fetchTrainings();
     }, []);
+
+    // observe the trainings-state, and create a state array of unique activities based on its changes
+    useEffect(() => {
+        const rawArray = trainings.map(session => session.activity);
+        const filteredArray = [...new Set(rawArray)];
+        setActivities(filteredArray);
+    }, [trainings]);
 
     function fetchCustomers() {
         fetch('https://customerrest.herokuapp.com/api/customers')
         .then(response => response.json())
         .then(data => setCustomers(data.content))
+        .catch(err => console.error(err))
+    };
+
+    function fetchTrainings() {
+        fetch('https://customerrest.herokuapp.com/api/trainings')
+        .then(response => response.json())
+        .then(data => setTrainings(data.content))
         .catch(err => console.error(err))
     };
 
@@ -31,10 +49,13 @@ function Customers() {
         {field: 'email', headerName: 'Email', sortable: true, filter: true},
         {field: 'phone', headerName: 'Telephone', sortable: true, filter: true, width: 120},
         {field: 'city', headerName: 'City', sortable: true, filter: true, width: 120},
-        {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 120,
+        {field: 'links.0.href', headerName: '', sortable: false, filter: true, width: 50,
+        cellRendererFramework: params => <AddTraining customer={params} customerlink={params.value}
+        activities={activities} />},
+        {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 50,
         cellRendererFramework: params => <EditCustomer customer={params} customerlink={params.value}
     fetchCustomers={fetchCustomers} />},
-        {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 120, 
+        {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 50, 
         cellRendererFramework: params => <DeleteCustomer customerlink={params.value}
         fetchCustomers={fetchCustomers} />}
     ];

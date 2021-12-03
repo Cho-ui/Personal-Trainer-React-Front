@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Modal, Button, message } from 'antd';
+import { UserAddOutlined } from "@ant-design/icons";
 import AddCustomerFields from "./formfields/AddCustomerFields";
 
 function AddCustomer(props) {
@@ -69,7 +70,7 @@ function AddCustomer(props) {
 
     return (
         <div>
-            <Button type="primary" onClick={showForm}>
+            <Button icon={<UserAddOutlined />} type="primary" onClick={showForm}> 
                 Add Customer
                 </Button>
                 <Modal
