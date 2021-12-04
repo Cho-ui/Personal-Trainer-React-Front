@@ -8,7 +8,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import EditCustomer from "./EditCustomer";
 import DeleteCustomer from "./DeleteCustomer";
-import AddTraining from "../AddTraining";
+import AddTraining from "./AddTraining";
 
 function Customers() {
     const [customers, setCustomers] = useState([]);

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Modal } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import AddTrainingFields from "./components/formfields/AddTrainingFields";
+import AddTrainingFields from "./formfields/AddTrainingFields";
 import { message } from "antd";
 
 function AddTraining(props) {
