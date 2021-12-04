@@ -4,6 +4,7 @@ import {AgGridReact} from 'ag-grid-react';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import DeleteTraining from "./DeleteTraining";
 
 function Trainings() {
 const [trainings, setTrainings] = useState([]);
@@ -29,7 +30,10 @@ const columns = [
     {field: 'activity', headerName: 'Activity', sortable: true, filter: true},
     {field: 'duration', headerName: 'Duration (minutes)', sortable: true, filter: true},
     {field: 'date', headerName: 'Date', sortable: true, filter: true,
-    cellRendererFramework: params => moment(params.value).format('DD.MM.YYYY HH:mm a')}
+    cellRendererFramework: params => moment(params.value).format('DD.MM.YYYY HH:mm a')},
+    {field: 'id', headerName: '', sortable: false, filter: false,
+    cellRendererFramework: params => <DeleteTraining activityid={params.value} 
+    fetchTrainings={fetchTrainings} />}
 ];
 
     return (
