@@ -1,13 +1,16 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {DatePicker, TimePicker, Input, Select, InputNumber, Button } from "antd";
-import moment from "moment";
 
 function AddTrainingFields(props) {
     const [isNew, setIsNew] = useState(false); // boolean for observing a typed activity
     const [ddValue, setDDValue] = useState(); // value for resetting dropdown menu
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
+    const [date, setDate] = useState(''); // extracted datepicker value
+    const [time, setTime] = useState(''); // extracted timepicker value
+
+    // moment and moment-timezone import, default tz set to GMT
+    const moment = require('moment-timezone');
+    moment.tz.setDefault("Europe/London");
 
     const { Option } = Select;
 
@@ -16,21 +19,19 @@ function AddTrainingFields(props) {
 
     /* if either time or date are changed, and the other field is not empty,
     the fields are concatenated into an iso string format derivative 
-    used by the back end --> TODO: change to GMT programmatically */
+    used by the back end. SetNewActivity and newActivity warnings from dep array
+    are removed by disabling the es-linter, as React ensures setState function
+    doesn't change and the state object is changed via spread operator which keeps
+    the existing object values intact */
 
     useEffect(() => {
         if (date.length > 0 && time.length > 0) {
-            const isoDate = date + time + '+00:00';
+            const isoDate = date + time;
             setNewActivity({...newActivity, date: isoDate});
         }
-    }, [date, time, props])
-
-  /*  useEffect(() => {
-        if (date.length > 0 && time.length > 0) {
-            const isoDate = date + time + '+00:00';
-            setNewActivity({...newActivity, date: isoDate});
-        }
-    }, [time]) */
+    }, 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [date, time])
 
     // if a new activity is typed in, the activity dropdown menu is disabled.
     useEffect(() => {
@@ -65,7 +66,12 @@ function AddTrainingFields(props) {
 
     // timepicker time value save
     const timeChanged = (value) => {
-        setTime(moment(value._d).format('[T]HH:mm:ss.SSS'));
+        setTime(moment(value._d).format('[T]HH:mm:ss.SSSZ'));
+    }
+
+    // duration field is monitored here
+    const durationChanged = (value) => {
+        setNewActivity({...newActivity, duration: value})
     }
 
     return (
@@ -92,7 +98,8 @@ function AddTrainingFields(props) {
         <Button onClick={clearActivity}>Clear</Button>
         </Input.Group>
         <div style={{marginTop:5, marginBottom: 5}}>Select duration(min):</div>
-        <InputNumber placeholder="0" />
+        <InputNumber placeholder="0" type="number" onChange={(value) => durationChanged(value)}
+        min={15} max={180} step={15} />
         </div>
     )
 }

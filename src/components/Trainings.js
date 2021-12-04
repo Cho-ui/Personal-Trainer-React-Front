@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import {AgGridReact} from 'ag-grid-react';
-//import dayjs from "dayjs";
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
@@ -9,7 +8,9 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 function Trainings() {
 const [trainings, setTrainings] = useState([]);
 
-const dayjs = require('dayjs');
+// moment and moment-timezone import, default tz set to GMT
+const moment = require('moment-timezone');
+moment.tz.setDefault("Europe/London");
 
 useEffect(() => {
     fetchTrainings();
@@ -28,7 +29,7 @@ const columns = [
     {field: 'activity', headerName: 'Activity', sortable: true, filter: true},
     {field: 'duration', headerName: 'Duration (minutes)', sortable: true, filter: true},
     {field: 'date', headerName: 'Date', sortable: true, filter: true,
-    cellRendererFramework: params => dayjs(params.value).format("DD.MM.YYYY HH:mm a")}
+    cellRendererFramework: params => moment(params.value).format('DD.MM.YYYY HH:mm a')}
 ];
 
     return (

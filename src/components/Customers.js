@@ -51,7 +51,7 @@ function Customers() {
         {field: 'city', headerName: 'City', sortable: true, filter: true, width: 120},
         {field: 'links.0.href', headerName: '', sortable: false, filter: true, width: 50,
         cellRendererFramework: params => <AddTraining customer={params} customerlink={params.value}
-        activities={activities} />},
+        activities={activities} fetchTrainings={fetchTrainings} />},
         {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 50,
         cellRendererFramework: params => <EditCustomer customer={params} customerlink={params.value}
     fetchCustomers={fetchCustomers} />},
