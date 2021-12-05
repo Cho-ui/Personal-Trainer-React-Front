@@ -1263,6 +1263,54 @@
     "minimatch" "^3.0.4"
     "strip-json-comments" "^3.1.1"
 
+"@fullcalendar/common@~5.10.1":
+  "integrity" "sha512-EumKIJcQTvQdTs75/9dmeREFgjcRVWzqHJS1Xvlz5mNsmB+w9EINCHETRjChtAQg1WD/lTQyVj4sHsKO7vCMSw=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/common/-/common-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "tslib" "^2.1.0"
+
+"@fullcalendar/daygrid@~5.10.1":
+  "integrity" "sha512-sfUMP+rew0krsBffgNcWWKhBCiyytGfRKZJoc64E8ohX7VWjPcPZuB1xgO5U4wPLmNkT0rZiHoGeQGTXw1+ZKg=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "tslib" "^2.1.0"
+
+"@fullcalendar/moment-timezone@^5.10.1":
+  "integrity" "sha512-DqTmzSCW2ZMP4wGfJdxc5rO/J1loBLgxgLYlG2Y0Qup2qeD1C+UlCEdtWUhYNMjTY1jBomKGJnWrLVc5ZxvcFA=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/moment-timezone/-/moment-timezone-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "tslib" "^2.1.0"
+
+"@fullcalendar/moment@^5.10.1":
+  "integrity" "sha512-Y0mYxa3sLUxwnGdyDfqqsMARMlZ+W43wSnofTQxMhIYketppfzJKz4zwTUXU/DFukM38DmjZvTV4j3xyGtb33A=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/moment/-/moment-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "tslib" "^2.1.0"
+
+"@fullcalendar/react@^5.10.1":
+  "integrity" "sha512-+kV5+o9qGjkoO5j0r3oawhig+hP3inE68bHKBl6dtGQ8mi3GkEGsTL12MY2n5N0hXon6+2psIQLnAjMyRYZbmg=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/react/-/react-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "tslib" "^2.1.0"
+
+"@fullcalendar/timegrid@^5.10.1":
+  "integrity" "sha512-0O0m+JzFBlg8gxYr/rIjZViRlbndCtjZlDjjIylQHFBeWC32e3cpHEavKGbTIBLN8SDilUYAJnE21abSqC2G/w=="
+  "resolved" "https://registry.npmjs.org/@fullcalendar/timegrid/-/timegrid-5.10.1.tgz"
+  "version" "5.10.1"
+  dependencies:
+    "@fullcalendar/common" "~5.10.1"
+    "@fullcalendar/daygrid" "~5.10.1"
+    "tslib" "^2.1.0"
+
 "@hapi/address@2.x.x":
   "integrity" "sha512-QD1PhQk+s31P1ixsX0H0Suoupp3VMXzIVMSwobR3F3MSUO2YCV0B7xqLcUw/Bh8yuvd3LhpyqLQWTNcRmp6IdQ=="
   "resolved" "https://registry.npmjs.org/@hapi/address/-/address-2.1.4.tgz"
@@ -7661,7 +7709,7 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
-"moment-timezone@^0.5.34":
+"moment-timezone@^0.5.31", "moment-timezone@^0.5.34":
   "integrity" "sha512-3zAEHh2hKUs3EXLESx/wsgw6IQdusOT8Bxm3D9UrHPQR7zlMmzwybC8zHEM1tQ4LJwP7fcxrWr8tuBg05fFCbg=="
   "resolved" "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.34.tgz"
   "version" "0.5.34"
@@ -9766,7 +9814,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^16.3.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>= 16.9.0", "react-dom@>=16.0.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
+"react-dom@*", "react-dom@^16.3.0 || ^17.0.0", "react-dom@^16.7.0 || ^17", "react-dom@^17.0.2", "react-dom@>= 16.9.0", "react-dom@>=16.0.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -9881,7 +9929,7 @@
   optionalDependencies:
     "fsevents" "^2.1.3"
 
-"react@*", "react@^16.3.0 || ^17.0.0", "react@^17.0.2", "react@>= 16", "react@>= 16.9.0", "react@>=16.0.0", "react@>=16.8", "react@>=16.9.0", "react@17.0.2":
+"react@*", "react@^16.3.0 || ^17.0.0", "react@^16.7.0 || ^17", "react@^17.0.2", "react@>= 16", "react@>= 16.9.0", "react@>=16.0.0", "react@>=16.8", "react@>=16.9.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -11498,7 +11546,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.3":
+"tslib@^2.0.3", "tslib@^2.1.0":
   "integrity" "sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.1.0.tgz"
   "version" "2.1.0"
