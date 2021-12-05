@@ -9,11 +9,13 @@ import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import EditCustomer from "./EditCustomer";
 import DeleteCustomer from "./DeleteCustomer";
 import AddTraining from "./AddTraining";
+import ExportCsv from "./ExportCsv";
 
 function Customers() {
     const [customers, setCustomers] = useState([]);
     const [trainings, setTrainings] = useState([]);
     const [activities, setActivities] = useState([]);
+    const [gridApi, setGridApi] = useState(null);
 
     useEffect(() => {
         fetchCustomers();
@@ -41,6 +43,26 @@ function Customers() {
         .catch(err => console.error(err))
     };
 
+    // sets the grid api to a state for reference in csv export
+    const onGridReady = (params) => {
+        setGridApi(params.api);
+    };
+
+    // exports the columns specified with columnkeys to a csv-file
+    const exportCsv = () => {
+        const toExport =  
+        {columnKeys: 
+            ['firstname', 
+            'lastname',
+            'streetaddress',
+            'postcode',
+            'email',
+            'phone',
+            'city'
+        ]};
+        gridApi.exportDataAsCsv(toExport);
+    };
+
     const columns = [
         {field: 'firstname', headerName: 'First Name', sortable: true, filter: true, width: 120},
         {field: 'lastname', headerName: 'Last Name', sortable: true, filter: true, width: 120},
@@ -66,6 +88,7 @@ function Customers() {
             style={{ marginTop: 10, height: 500, width: '95%'}}>
             <Space style={{ marginBottom: 10 }}>
                 <AddCustomer fetchCustomers={fetchCustomers} />
+                <ExportCsv exportCsv={exportCsv} />
             </Space>
             <AgGridReact
                     rowData={customers}
@@ -73,6 +96,7 @@ function Customers() {
                     pagination={true}
                     paginationPageSize={10}
                     suppressCellSelection={true}
+                    onGridReady={onGridReady}
                 />
             </div>
         </div>
