@@ -14,11 +14,11 @@ function ActivitySchedule() {
 
     // fetch training data with customers
     useEffect(() => {
-        fetchSessions();
+        fetchTrainings();
     }, []);
 
     // map needed training objects to trainings array with an empty end-property    
-    function fetchSessions() {
+    function fetchTrainings() {
         fetch('https://customerrest.herokuapp.com/gettrainings')
         .then(response => response.json())
         .then(data => data.map(training => 
