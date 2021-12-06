@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/moment": "^5.10.1",
     "@fullcalendar/moment-timezone": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",

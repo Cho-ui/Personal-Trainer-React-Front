@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid";
 import momentTimezonePlugin from "@fullcalendar/moment-timezone";
 import moment from "moment";
@@ -65,8 +66,13 @@ function ActivitySchedule() {
     return (
         <div style={{ marginTop: 10, marginLeft: 10, width: '95%'}}>
             <FullCalendar 
-            plugins={[timeGridPlugin, momentTimezonePlugin]}
+            plugins={[timeGridPlugin, dayGridPlugin, momentTimezonePlugin]}
             initialView='timeGridWeek'
+            headerToolbar={{
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,dayGridDay',
+              }}
             events={sessions}
             eventClick={eventInfo}
             timeZone='Europe/London'
