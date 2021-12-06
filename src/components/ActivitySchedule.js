@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import momentTimezonePlugin from "@fullcalendar/moment-timezone";
-//import momentPlugin from "@fullcalendar/moment";
 import moment from "moment";
+
 
 function ActivitySchedule() {
     const [trainings, setTrainings] = useState([]);
@@ -53,14 +53,14 @@ function ActivitySchedule() {
         setSessions(trainings);
     }, [trainings]);
 
-    /* function infoTooltip(info) {
-        const tooltip = new Tooltip(info.el, {
-            title: info.event.extendedProps.description,
-            placement: 'top',
-            trigger: 'hover',
-            container: 'body'
-          })
-    } */
+    /* On clicking an event, the user gets an alert with the event info.
+    Could be replaced with a tooltip or similar if developed further */
+    const eventInfo = (info) => {
+        const start = moment(info.event.start).format('HH:mm');
+        const end = moment(info.event.end).format('HH:mm');
+        const title = String(info.event.title);
+        alert(`${start} - ${end} ${title}`);
+    }
 
     return (
         <div style={{ marginTop: 10, marginLeft: 10, width: '95%'}}>
@@ -68,7 +68,7 @@ function ActivitySchedule() {
             plugins={[timeGridPlugin, momentTimezonePlugin]}
             initialView='timeGridWeek'
             events={sessions}
-            //eventRender={infoTooltip(info)}
+            eventClick={eventInfo}
             timeZone='Europe/London'
             height={600}
             allDaySlot={false}
