@@ -39,7 +39,7 @@ function Statistics() {
 
     return(
         <div style={{marginTop: 80}}>
-            <BarChart width={600} height={400} data={stats}>
+            <BarChart width={900} height={400} data={stats}>
             <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="activity"/>
                 <YAxis label={{ value: 'Total (min)', 
