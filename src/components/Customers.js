@@ -71,7 +71,7 @@ function Customers() {
         {field: 'email', headerName: 'Email', sortable: true, filter: true},
         {field: 'phone', headerName: 'Telephone', sortable: true, filter: true, width: 120},
         {field: 'city', headerName: 'City', sortable: true, filter: true, width: 120},
-        {field: 'links.0.href', headerName: '', sortable: false, filter: true, width: 50,
+        {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 50,
         cellRendererFramework: params => <AddTraining customer={params} customerlink={params.value}
         activities={activities} fetchTrainings={fetchTrainings} />},
         {field: 'links.0.href', headerName: '', sortable: false, filter: false, width: 50,
