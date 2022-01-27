@@ -88,7 +88,7 @@ As a learning exercise to Front End-development using React, this course project
 
 ### Further development
 
-No work or project is ever truly complete. As far as developing this project further, I definitely see potential. The next steps I believe to be beneficial are creating a similar back end with C#/.NET-technologies, and implementing TypeScript as well as a more conventional package structure to the basis this course project provided. These are technologies I am studying and implementing into course work at the time of writing(early 2022), and will hopefully be able to implement into my skillset to further my skills as a potential development professional.
+No work or project is ever truly complete. As far as developing this project further, I definitely see potential. The next steps I believe to be beneficial are creating a similar back end with C#/.NET-technologies, and implementing TypeScript as well as a more conventional package structure to the basis this course project provided. These are technologies I am studying and implementing into course work at the time of writing(early 2022), and will hopefully be able to ass into my skillset to further my growth as an aspiring development professional.
 
 #### Cheers,
 #### Christian
