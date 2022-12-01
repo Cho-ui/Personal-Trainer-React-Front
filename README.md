@@ -6,6 +6,8 @@ This personal trainer web app was developed for Haaga-Helia University of Applie
 
 https://ptfront.herokuapp.com/
 
+The API the app is based on is a resource used on multiple courses, and thus might cause issues with how the app is behaving based on the information other course participants have saved to the DB. In case of errors in functionality, send an empty POST request to https://customerrest.herokuapp.com/reset. This resets the DB to contain the default mock data designed to be used in the assignment.
+
 ## Task case
 
 The task case was laid out as a personal trainer service needing a front end app for their customer database. The database contained information regarding customers and their training activities. Rest API documentation for the database was provided, along with instructions to complete four tasks using either React.js or Vue.js. As the course had focused on React, I decided to implement said technology to complete the tasks to the best degree possible.
